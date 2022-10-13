@@ -11,7 +11,7 @@ public class BankiSzolgaltatas
         this.tulajdonos = tulajdonos;
     }
 
-    public Tulajdonos getTulajdonos() 
+    public Tulajdonos getTulajdonos()
     {
         return tulajdonos;
     }
