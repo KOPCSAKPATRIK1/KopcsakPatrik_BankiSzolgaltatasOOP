@@ -2,18 +2,33 @@ package hu.petrik.bejegyzesProjekt;
 
 public class Kartya extends BankiSzolgaltatas
 {
-    private String kartyaszam;
+    private String kartyaSzam;
     private Szamla szamla;
 
-    public Kartya(Tulajdonos tulajdonos, Szamla szamla, String kartyaszam )
+    public Kartya(Tulajdonos tulajdonos, Szamla szamla, String kartyaSzam)
     {
         super(tulajdonos);
         this.szamla = szamla;
-        this.kartyaszam = kartyaszam;
+        this.kartyaSzam = kartyaSzam;
     }
 
-    public void setKartyaszam(String kartyaszam)
+    public String getKartyaSzam()
     {
-        this.kartyaszam = kartyaszam;
+        return kartyaSzam;
     }
+
+    public boolean vasarlas(int osszeg)
+    {
+        if (this.szamla.aktualisEgyenleg>=osszeg)
+        {
+            this.szamla.aktualisEgyenleg-=osszeg;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
 }

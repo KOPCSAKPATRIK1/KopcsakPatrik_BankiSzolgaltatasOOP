@@ -1,7 +1,6 @@
 package hu.petrik.bejegyzesProjekt;
 
-public class Szamla extends BankiSzolgaltatas
-{
+public abstract class Szamla extends BankiSzolgaltatas{
     protected int aktualisEgyenleg;
 
     public Szamla(Tulajdonos tulajdonos)
@@ -11,23 +10,19 @@ public class Szamla extends BankiSzolgaltatas
 
     public int getAktualisEgyenleg()
     {
-        return this.aktualisEgyenleg;
+        return aktualisEgyenleg;
     }
 
     public void befizet(int osszeg)
     {
         this.aktualisEgyenleg += osszeg;
     }
+    public abstract boolean kivesz(int osszeg);
 
-    public boolean kivesz(int osszeg)
+    public Kartya ujKartya (String kartyaszam)
     {
-        return false;
+        return new Kartya(this.getTulajdonos(),this,kartyaszam);
     }
 
-    public Kartya ujKartya(String kartyaSzam)
-    {
-        Kartya kartya = new Kartya(getTulajdonos() ,kartyaSzam, String);
-            return ;
-    }
 
 }
